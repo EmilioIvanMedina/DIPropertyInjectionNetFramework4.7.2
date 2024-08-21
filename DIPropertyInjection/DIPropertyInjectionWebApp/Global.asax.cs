@@ -1,4 +1,5 @@
 ﻿using DIPropertyInjectionWebApp.App_Start;
+using DIPropertyInjectionWebApp.Controllers;
 using DISampleServices.Implementations;
 using DISampleServices.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +35,13 @@ namespace DIPropertyInjectionWebApp
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ISampleService, SampleService>();
+
+            services.AddScoped<HomeController>(provider =>
+            {
+                var controller = new HomeController();
+                controller.SampleService = provider.GetService<ISampleService>();
+                return controller;
+            });
         }
     }
 }

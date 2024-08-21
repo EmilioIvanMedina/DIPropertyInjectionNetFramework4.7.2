@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DISampleServices.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,10 @@ namespace DIPropertyInjectionWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        public ISampleService SampleService { get; set; }
         public ActionResult Index()
         {
+            var myNumber = SampleService.GetNumber();
             return View();
         }
 
