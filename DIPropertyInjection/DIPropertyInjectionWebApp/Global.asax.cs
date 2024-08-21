@@ -1,4 +1,6 @@
 ﻿using DIPropertyInjectionWebApp.App_Start;
+using DISampleServices.Implementations;
+using DISampleServices.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 using System;
@@ -31,7 +33,7 @@ namespace DIPropertyInjectionWebApp
 
         private void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<ISampleService, SampleService>();
         }
     }
 }
