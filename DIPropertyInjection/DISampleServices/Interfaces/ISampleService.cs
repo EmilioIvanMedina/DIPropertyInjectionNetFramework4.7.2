@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DISampleServices
+namespace DISampleServices.Interfaces
 {
-    public class Class1
+    public interface ISampleService
     {
+        int GetNumber();
     }
 }
